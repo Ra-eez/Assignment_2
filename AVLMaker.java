@@ -7,6 +7,7 @@ package cs2001f.assignment.pkg2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,9 +21,19 @@ public class AVLMaker {
     String sdata;
     String sname;
     
-    public void AVLMaker() throws FileNotFoundException{
+    public void AVLMaker(ArrayList<String> newArray) throws FileNotFoundException{
         
-        // read file with data
+        //setnewArray();
+        for (int i = 0; i < newArray.size(); i++){
+            String data = newArray.get(i);
+            String[] info = data.split("\\|");
+            
+            sdata = data;
+            sname = (info[2]+"");
+            
+            avl.insert(sname,sdata);
+    }
+        /*// read file with data
         file = new Scanner(new File("/home/moegamat/Downloads/data/testdata"));
         
         // input data into the AVLTree
@@ -38,6 +49,6 @@ public class AVLMaker {
             
             // insert the information into the AVLTree
             avl.insert(sname, sdata);
-}
+}*/
 }
 }

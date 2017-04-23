@@ -14,7 +14,7 @@ import java.util.Scanner;
  *03 April 2017
  * @author Moegamat Ra-eez Stenekamp
  */
-public class DataReader {
+public class DataReader{
     
     // Access the file
     Scanner file;
@@ -28,9 +28,20 @@ public class DataReader {
     String sname;
     String sdata;
     
-    public void DataReader() throws FileNotFoundException{
+    public void DataReader(ArrayList<String> newArray) throws FileNotFoundException{
+       
+       
+        for (int i = 0; i < newArray.size();i++){
+            String data = newArray.get(i);
+            String[] info = data.split("\\|");
+            
+            sdata = data;
+            sname = (info[2]+"");
+            
+            bst.insert(sname, sdata);
+        }
         
-        // read file with the data
+        /*// read file with the data
         file = new Scanner(new File("/home/moegamat/Downloads/data/testdata"));
         
         // input data into the Binary Search Tree
@@ -46,6 +57,6 @@ public class DataReader {
             
             // insert the information into the BST
             bst.insert(sname, sdata);
-    }
+    }*/
 }
 }
